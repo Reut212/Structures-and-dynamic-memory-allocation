@@ -75,7 +75,7 @@ void printInorder(node *node, char string[LINE], int indexChar ) {
 	string[indexChar] = node->letter;
 	string[indexChar+1] = '\0';
     if ( node->count > 0 ) {
-		printf ("%s\t%ld \n", string, (node->count) );
+		printf ("%s %ld \n", string, (node->count) );
 	}
     for (int i = 0; i < MUN_ABC; i++) {
         if (node->children[i] != NULL) {
@@ -93,7 +93,7 @@ void printPreorder(node *node, char string[], int indexChar ) {
 	}
     else {string[indexChar] = '\0';}
     if ( node->count > 0 ) {
-		printf ("%s\t%ld\n", string, node->count );
+		printf ("%s %ld\n", string, node->count );
 	}
     for (int i = MUN_ABC-1; i >= 0; i--) {
         if (node->children[i] != NULL) {
