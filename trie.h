@@ -1,4 +1,3 @@
-#define EX4_FREQUENCY_LIB_H
 #define  MUN_ABC 26
 #define  LINE 256
 
