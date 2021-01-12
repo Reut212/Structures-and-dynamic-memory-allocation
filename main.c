@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
     	for (int i=0; i < MUN_ABC; i++){
 		head.children[i] = NULL;
 	}
-	textToTree(&head);
+	createTree(&head);
 	if (argc == 1){
 		for (int i = 0; i < MUN_ABC; i++) {
 			if (head.children[i] != NULL) {

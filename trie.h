@@ -12,11 +12,10 @@ typedef struct node {
     struct node* children [MUN_ABC];
 } node;
 
-void textToTree(node *head);
+void createTree(node *head);
 void printInorder(node *node, char string[LINE], int indexChar );
 void printPreorder(node *node, char string[LINE], int indexChar );
-void addWord(node *head,  char* const p, int size);
+void getWord(node *head,  char* const p, int size);
 boolean checkChar(char index);
 char convert(char index);
 void destroyTree(node *head);
-

@@ -6,7 +6,7 @@
 #define NUM_LETTERS 26
 
 //Get a line from a text and check each word
-void textToTree(node *head) {
+void createTree(node *head) {
     char line[LINE] = {0};
     char *p = NULL;
     int run = 0;
@@ -18,7 +18,7 @@ void textToTree(node *head) {
 			if (checkChar(line[run])) {
 				sum++;
 			} else if (sum != 0) {
-				addWord(head, p, sum);
+				getWord(head, p, sum);
 				p = p + sum + 1;
 				sum = 0;
 			} else {
@@ -32,7 +32,7 @@ void textToTree(node *head) {
 }
 
 //add a specific word after checking and converting it
-void addWord(node *n, char* const p, int size) {
+void getWord(node *n, char* const p, int size) {
     if (size == 0) {
         n->count++;
     } else {
@@ -46,9 +46,9 @@ void addWord(node *n, char* const p, int size) {
                 new->children[i] = NULL;
             }
             n->children[tempChar] = new;
-            addWord(new, p2 + 1, size - 1);
+            getWord(new, p2 + 1, size - 1);
         } else {
-            addWord(n->children[tempChar], p2 + 1, size - 1);
+            getWord(n->children[tempChar], p2 + 1, size - 1);
         }
         p2++;
     }
@@ -75,7 +75,7 @@ void printInorder(node *node, char string[LINE], int indexChar ) {
 	string[indexChar] = node->letter;
 	string[indexChar+1] = '\0';
     if ( node->count > 0 ) {
-		printf ("%s %ld \n", string, (node->count) );
+		printf ("%s %ld\n", string, (node->count) );
 	}
     for (int i = 0; i < MUN_ABC; i++) {
         if (node->children[i] != NULL) {
